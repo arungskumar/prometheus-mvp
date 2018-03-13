@@ -6,7 +6,7 @@ It is recommended to create a bosh UAA account (bosh_exporter) with "refresh_tok
     authorities: bosh.read
     scope: bosh.read
 ```
-While this step is option, and you could use the bosh direct login credential to test out the deployment, the deployment may stop working once the director uaa token expired. 
+While this step is optional, and you could use the bosh director login credential to test out the deployment, the deployment may stop working once the director uaa token expired. 
 ## Step 1:
 Run ```./create-exporter-uaa.sh``` to add the UAA clients for cf and firehose exporters
 ## Step 2:
