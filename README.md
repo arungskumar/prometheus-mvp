@@ -1,3 +1,6 @@
+## Pre-requisites:
+A working Bosh environment with UAA
+
 ## Step 0:
 It is recommended to create a bosh UAA account (bosh_exporter) with "refresh_token" enabled:
 ```

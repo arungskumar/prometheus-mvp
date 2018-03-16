@@ -1,0 +1,46 @@
+# Will be auto-generated if not specified
+alertmanager_mesh_password: 
+# Will be auto-generated if not specified
+alertmanager_password: 
+
+# Required only for alert manager slack integration
+alertmanager_slack_api_url: 
+alertmanager_slack_channel: 
+
+# Required. Recommend to create the bosh_exporter UAA client with refresh_token grant type
+bosh_url: 
+uaa_bosh_exporter_client_id: bosh_exporter
+uaa_bosh_exporter_client_secret: 
+bosh_ca_cert: |
+  -----BEGIN CERTIFICATE-----
+ 
+  -----END CERTIFICATE-----
+bosh_metrics_environment: Bosh
+
+# Password to login grafana dashboard. Default user id is admin
+grafana_password: 
+
+# Will be auto-generated if not specified
+grafana_secret_key: 
+postgres_grafana_password: 
+
+# Password to login prometheus server directly
+prometheus_password:
+
+# Required only for blackbox monitoring 
+probe_endpoints:
+- 
+
+skip_ssl_verify: true
+pcf1_metrics_environment: pcf1
+pcf1_metron_deployment_name: cf
+pcf1_system_domain: sys.az01.mzpcf.com
+pcf1_traffic_controller_external_port: 443
+pcf1_uaa_clients_cf_exporter_secret: 
+pcf1_uaa_clients_firehose_exporter_secret: 
+pcf2_metrics_environment: pcf2
+pcf2_metron_deployment_name: cf
+pcf2_system_domain: 
+pcf2_traffic_controller_external_port: 443
+pcf2_uaa_clients_cf_exporter_secret: 
+pcf2_uaa_clients_firehose_exporter_secret: 

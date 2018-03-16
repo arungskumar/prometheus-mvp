@@ -35,23 +35,39 @@ if [ ! -f ./${PARAM_FILE} ] && [ ! -f ./ops/${EXPORTER_OPS_FILE} ]; then
   # validateStringInput "$boshCert"
 
   cat > ./${PARAM_FILE} <<EOL
+# Will be auto-generated if not specified
 alertmanager_mesh_password: 
+# Will be auto-generated if not specified
 alertmanager_password: 
+
+# Required only for alert manager slack integration
 alertmanager_slack_api_url: 
 alertmanager_slack_channel: 
+
+# Required. Recommend to create the bosh_exporter UAA client with refresh_token grant type
 bosh_url: 
+uaa_bosh_exporter_client_id: bosh_exporter
 uaa_bosh_exporter_client_secret: 
 bosh_ca_cert: |
   -----BEGIN CERTIFICATE-----
  
   -----END CERTIFICATE-----
 bosh_metrics_environment: Bosh
+
+# Password to login grafana dashboard. Default user id is admin
 grafana_password: 
+
+# Will be auto-generated if not specified
 grafana_secret_key: 
 postgres_grafana_password: 
-prometheus_password: 
+
+# Password to login prometheus server directly
+prometheus_password:
+
+# Required only for blackbox monitoring 
 probe_endpoints:
 - 
+
 skip_ssl_verify: true
 EOL
 
