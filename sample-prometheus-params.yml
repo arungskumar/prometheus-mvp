@@ -1,16 +1,16 @@
 # Will be auto-generated if not specified
 alertmanager_mesh_password: 
 # Will be auto-generated if not specified
-alertmanager_password: 
+alertmanager_password: ALERT-MANAGER-PASSWORD-HERE
 
 # Required only for alert manager slack integration
-alertmanager_slack_api_url: 
-alertmanager_slack_channel: 
+alertmanager_slack_api_url: HTTPS://SLACKCHANNEL-WEBHOOK-URL
+alertmanager_slack_channel: '#PROMETHEUS-ALERT-CHANNEL-NAME'
 
 # Required. Recommend to create the bosh_exporter UAA client with refresh_token grant type
-bosh_url: 
+bosh_url: 10.0.0.6
 uaa_bosh_exporter_client_id: bosh_exporter
-uaa_bosh_exporter_client_secret: 
+uaa_bosh_exporter_client_secret: BOSH-EXPORTER-SECRET-HERE
 bosh_ca_cert: |
   -----BEGIN CERTIFICATE-----
  
@@ -18,29 +18,31 @@ bosh_ca_cert: |
 bosh_metrics_environment: Bosh
 
 # Password to login grafana dashboard. Default user id is admin
-grafana_password: 
+grafana_password: GRAFANA-DASHBOARD-PASSWORD-HERE
 
 # Will be auto-generated if not specified
 grafana_secret_key: 
 postgres_grafana_password: 
 
 # Password to login prometheus server directly
-prometheus_password:
+prometheus_password: PROMETHEUS-PASSWORD-HERE
 
 # Required only for blackbox monitoring 
 probe_endpoints:
-- 
+- https://network.pivotal.io
+- https://www.google.com
+- https://any.other.endpoints.you.want.to.monitor
 
 skip_ssl_verify: true
 pcf1_metrics_environment: pcf1
 pcf1_metron_deployment_name: cf
-pcf1_system_domain: sys.az01.mzpcf.com
+pcf1_system_domain: sys.example1.com
 pcf1_traffic_controller_external_port: 443
-pcf1_uaa_clients_cf_exporter_secret: 
-pcf1_uaa_clients_firehose_exporter_secret: 
+pcf1_uaa_clients_cf_exporter_secret: USE-SECRET-CREATED-FROM-CREATE-EXPORTER-SCRIPT
+pcf1_uaa_clients_firehose_exporter_secret: USE-SECRET-CREATED-FROM-CREATE-EXPORTER-SCRIPT
 pcf2_metrics_environment: pcf2
 pcf2_metron_deployment_name: cf
-pcf2_system_domain: 
+pcf2_system_domain: sys.example2.com
 pcf2_traffic_controller_external_port: 443
-pcf2_uaa_clients_cf_exporter_secret: 
-pcf2_uaa_clients_firehose_exporter_secret: 
+pcf2_uaa_clients_cf_exporter_secret: USE-SECRET-CREATED-FROM-CREATE-EXPORTER-SCRIPT
+pcf2_uaa_clients_firehose_exporter_secret: USE-SECRET-CREATED-FROM-CREATE-EXPORTER-SCRIPT
