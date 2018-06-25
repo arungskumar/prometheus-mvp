@@ -3,7 +3,7 @@
   path: /instance_groups/name=prometheus/jobs/name=cloudfoundry_alerts?/release
   value: prometheus
 - type: replace
-  path: /instance_groups/name=prometheus/jobs/name=prometheus/properties/prometheus/rule_files/-
+  path: /instance_groups/name=prometheus/jobs/name=prometheus2/properties/prometheus/rule_files/-
   value: /var/vcap/jobs/cloudfoundry_alerts/*.alerts
 # cf Grafana Dashboards
 - type: replace
@@ -17,7 +17,7 @@
   path: /instance_groups/name=prometheus/jobs/name=bosh_alerts?/release
   value: prometheus
 - type: replace
-  path: /instance_groups/name=prometheus/jobs/name=prometheus/properties/prometheus/rule_files/-
+  path: /instance_groups/name=prometheus/jobs/name=prometheus2/properties/prometheus/rule_files/-
   value: /var/vcap/jobs/bosh_alerts/*.alerts
 # Bosh Grafana Dashboards
 - type: replace
@@ -29,7 +29,7 @@
 
 # Prometheus Scrape Config
 - type: replace
-  path: /instance_groups/name=prometheus/jobs/name=prometheus/properties/prometheus/scrape_configs/-
+  path: /instance_groups/name=prometheus/jobs/name=prometheus2/properties/prometheus/scrape_configs/-
   value:
     job_name: bosh
     scrape_interval: 2m
@@ -39,7 +39,7 @@
         - localhost:9190
 # Service Discovery
 - type: replace
-  path: /instance_groups/name=prometheus/jobs/name=prometheus/properties/prometheus/scrape_configs/-
+  path: /instance_groups/name=prometheus/jobs/name=prometheus2/properties/prometheus/scrape_configs/-
   value:
     job_name: bosh_tsdb
     file_sd_configs:
@@ -56,7 +56,7 @@
         target_label: __address__
         replacement: "${1}:9194"
 - type: replace
-  path: /instance_groups/name=prometheus/jobs/name=prometheus/properties/prometheus/scrape_configs/-
+  path: /instance_groups/name=prometheus/jobs/name=prometheus2/properties/prometheus/scrape_configs/-
   value:
     job_name: cf
     scrape_interval: 4m
@@ -75,7 +75,7 @@
         target_label: __address__
         replacement: "${1}:9193"
 - type: replace
-  path: /instance_groups/name=prometheus/jobs/name=prometheus/properties/prometheus/scrape_configs/-
+  path: /instance_groups/name=prometheus/jobs/name=prometheus2/properties/prometheus/scrape_configs/-
   value:
     job_name: firehose
     scrape_interval: 1m

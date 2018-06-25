@@ -35,7 +35,7 @@ instance_groups:
     networks:
       - name: default
     jobs:
-      - name: prometheus
+      - name: prometheus2
         release: prometheus
         properties:
           prometheus:
@@ -173,11 +173,11 @@ stemcells:
     version: latest
 
 releases:
-- name: postgres
-  version: "23"
-  url: https://bosh.io/d/github.com/cloudfoundry/postgres-release?v=23
-  sha1: 4b5265bfd5f92cf14335a75658658a0db0bca927
-- name: prometheus
-  version: 21.0.0
-  url: https://github.com/bosh-prometheus/prometheus-boshrelease/releases/download/v21.0.0/prometheus-21.0.0.tgz
-  sha1: 606757c5cd5192e875768da3c581970d3146328c
+- name: "postgres"
+  version: "28"
+  url: "https://bosh.io/d/github.com/cloudfoundry/postgres-release?v=28"
+  sha1: "c1fcec62cb9d2e95e3b191e3c91d238e2b9d23fa"
+- name: "prometheus"
+  version: "v22.0.1"
+  url: "https://bosh.io/d/github.com/cloudfoundry-community/prometheus-boshrelease?v=v22.0.1"
+  sha1: "aedaad2aa7ca56a2d2a96fe197706f29b95f8bd0"
