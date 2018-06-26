@@ -1,10 +1,10 @@
-# cf Prometheus Alerts
+#*.yml cf Prometheus Alerts
 - type: replace
   path: /instance_groups/name=prometheus/jobs/name=cloudfoundry_alerts?/release
   value: prometheus
 - type: replace
   path: /instance_groups/name=prometheus/jobs/name=prometheus2/properties/prometheus/rule_files/-
-  value: /var/vcap/jobs/cloudfoundry_alerts/*.alerts
+  value: /var/vcap/jobs/cloudfoundry_alerts/*.alerts*.yml
 # cf Grafana Dashboards
 - type: replace
   path: /instance_groups/name=grafana/jobs/name=cloudfoundry_dashboards?/release
@@ -18,7 +18,7 @@
   value: prometheus
 - type: replace
   path: /instance_groups/name=prometheus/jobs/name=prometheus2/properties/prometheus/rule_files/-
-  value: /var/vcap/jobs/bosh_alerts/*.alerts
+  value: /var/vcap/jobs/bosh_alerts/*.alerts*.yml
 # Bosh Grafana Dashboards
 - type: replace
   path: /instance_groups/name=grafana/jobs/name=bosh_dashboards?/release
