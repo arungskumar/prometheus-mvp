@@ -106,12 +106,12 @@ EOL
     #validateStringInput $firehoseExporterSecret
 
     cat >> ./${PARAM_FILE} <<EOL
-pcf${c}_metrics_environment: $pcfName
-pcf${c}_metron_deployment_name: cf
-pcf${c}_system_domain: $sysDomain
-pcf${c}_traffic_controller_external_port: 443
-pcf${c}_uaa_clients_cf_exporter_secret: $cfExporterSecret
-pcf${c}_uaa_clients_firehose_exporter_secret: $firehoseExporterSecret
+${pcfName}_metrics_environment: $pcfName
+${pcfName}_metron_deployment_name: cf
+${pcfName}_system_domain: $sysDomain
+${pcfName}_traffic_controller_external_port: 443
+${pcfName}_uaa_clients_cf_exporter_secret: $cfExporterSecret
+${pcfName}_uaa_clients_firehose_exporter_secret: $firehoseExporterSecret
 EOL
 
     cat >> ./ops/${EXPORTER_OPS_FILE} <<EOL
@@ -132,27 +132,27 @@ EOL
         properties:
           firehose_exporter:
             doppler:
-              url: wss://doppler.((pcf${c}_system_domain)):((pcf${c}_traffic_controller_external_port))
-              subscription_id: "((pcf${c}_metrics_environment))"
+              url: wss://doppler.((${pcfName}_system_domain)):((${pcfName}_traffic_controller_external_port))
+              subscription_id: "((${pcfName}_metrics_environment))"
               max_retry_count: 300
             uaa:
-              url: https://uaa.((pcf${c}_system_domain))
+              url: https://uaa.((${pcfName}_system_domain))
               client_id: firehose_exporter
-              client_secret: "((pcf${c}_uaa_clients_firehose_exporter_secret))"
+              client_secret: "((${pcfName}_uaa_clients_firehose_exporter_secret))"
             metrics:
-              environment: "((pcf${c}_metrics_environment))"
+              environment: "((${pcfName}_metrics_environment))"
             skip_ssl_verify: ((skip_ssl_verify))
       - name: cf_exporter
         release: prometheus
         properties:
           cf_exporter:
             cf:
-              api_url: https://api.((pcf${c}_system_domain))
+              api_url: https://api.((${pcfName}_system_domain))
               client_id: cf_exporter
-              client_secret: "((pcf${c}_uaa_clients_cf_exporter_secret))"
-              deployment_name: ((pcf${c}_metron_deployment_name))
+              client_secret: "((${pcfName}_uaa_clients_cf_exporter_secret))"
+              deployment_name: ((${pcfName}_metron_deployment_name))
             metrics:
-              environment: "((pcf${c}_metrics_environment))"
+              environment: "((${pcfName}_metrics_environment))"
             skip_ssl_verify: ((skip_ssl_verify))
 EOL
 
@@ -161,4 +161,3 @@ EOL
 else 
    echo -e "\nAbort. Param file: ${PARAM_FILE} and/or exporter ops file: ./ops/${EXPORTER_OPS_FILE} already exist(s)."
 fi
-

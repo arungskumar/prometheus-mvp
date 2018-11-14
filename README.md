@@ -15,7 +15,7 @@ It is recommended to create a bosh_exporter UAA client with "refresh_token" gran
 ```
 Without refresh_token grant type, a UAA client may expire and therefore cause the outage of the monitoring.
 
-You may add an ops file for creating bosh_exporter UAA account.  A sample ops file (add-bosh-exporter-uaa-clients.yml) can be found at the ops directory.  If the bosh director is created by BBL, add a "create-director-override.sh" file in the same directory as for the default "create-director.sh" file to add the ops file.
+You may add an ops file for creating bosh_exporter UAA account.  A sample ops file (add-bosh-exporter-uaa-clients.yml) can be found at the ops directory.  If the bosh director is created by BBL, add a "create-director-override.sh" file in the same directory as for the default "create-director.sh" file to add the ops file. Note: This ops file is for the bosh director, NOT for prometheus.
 
 ### Step 2:
 Run ```./create-exporter-uaa.sh``` to generate the UAA clients for cf and firehose exporters for the PCF foundations to be monitored.  Access to the cloud controller and doppler endpoints are the only requirements on the PCF side.
