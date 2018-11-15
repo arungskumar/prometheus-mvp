@@ -13,7 +13,7 @@ addExporterUaaUsers(){
 
     uaac client add cf_exporter \
         --name cf_exporter \
-        --secret $3 \
+        --secret $4 \
         --authorized_grant_types client_credentials,refresh_token \
         --authorities cloud_controller.global_auditor
 }
@@ -46,11 +46,15 @@ for (( c=1; c<=$envNum; c++ )) do
     read adminCred
     validateStringInput $adminCred
 
-    echo -n "Enter exporter password [ENTER]: "
-    read exporterPassword
-    validateStringInput $exporterPassword
+    echo -n "Enter firehose_exporter password [ENTER]: "
+    read firehose_exporterPassword
+    validateStringInput $firehose_exporterPassword
     
-    addExporterUaaUsers $uaaUrl $adminCred $exporterPassword
+    echo -n "Enter cf_exporter password [ENTER]: "
+    read cf_exporterPassword
+    validateStringInput $cf_exporterPassword
+
+    addExporterUaaUsers $uaaUrl $adminCred $firehose_exporterPassword $cf_exporterPassword
     
 done
 
