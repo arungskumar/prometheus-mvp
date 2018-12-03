@@ -104,6 +104,7 @@ EOL
     echo -n "Enter firehose exporter secret: [ENTER]: "
     read firehoseExporterSecret
     #validateStringInput $firehoseExporterSecret
+    echo "-----------------"
 
     cat >> ./${PARAM_FILE} <<EOL
 ${pcfName}_metrics_environment: $pcfName

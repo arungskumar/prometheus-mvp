@@ -42,7 +42,7 @@ for (( c=1; c<=$envNum; c++ )) do
     read uaaUrl
     validateStringInput $uaaUrl
 
-    echo -n "Enter uaa admin credential for the environment [ENTER]: "
+    echo -n "Enter uaa admin client credential for the environment [ENTER]: "
     read adminCred
     validateStringInput $adminCred
 
