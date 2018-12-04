@@ -1,0 +1,5 @@
+# give nginx a public IP for public cloud usage
+- type: replace
+  path: /instance_groups/name=nginx/vm_extensions?
+  value: 
+    - public_ip
