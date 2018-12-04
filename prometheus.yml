@@ -169,15 +169,15 @@ update:
 
 stemcells:
   - alias: default
-    os: ubuntu-trusty
+    os: ubuntu-xenial
     version: latest
 
 releases:
 - name: "postgres"
-  version: "28"
-  url: "https://bosh.io/d/github.com/cloudfoundry/postgres-release?v=28"
-  sha1: "c1fcec62cb9d2e95e3b191e3c91d238e2b9d23fa"
+  version: "30"
+  url: "https://bosh.io/d/github.com/cloudfoundry/postgres-release?v=30"
+  sha1: "a798999d29b9f5aa12035cff907b26674b491200"
 - name: "prometheus"
-  version: "v22.0.1"
-  url: "https://bosh.io/d/github.com/cloudfoundry-community/prometheus-boshrelease?v=v22.0.1"
-  sha1: "aedaad2aa7ca56a2d2a96fe197706f29b95f8bd0"
+  version: "23.4.0"
+  url: "https://bosh.io/d/github.com/cloudfoundry-community/prometheus-boshrelease?v=23.4.0"
+  sha1: "6cd1baafa806c43149f1d92e8bab87ee47b19623"
