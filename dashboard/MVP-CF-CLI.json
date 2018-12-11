@@ -15,8 +15,8 @@
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
-  "hideControls": false,
-  "id": 4,
+  "id": 56,
+  "iteration": 1544548566846,
   "links": [
     {
       "asDropdown": true,
@@ -30,935 +30,376 @@
       "type": "dashboards"
     }
   ],
-  "refresh": false,
-  "rows": [
+  "panels": [
     {
-      "collapse": false,
-      "height": "150",
-      "panels": [
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 43,
+      "panels": [],
+      "repeat": null,
+      "title": "SLOs",
+      "type": "row"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#d44a3a",
+        "rgba(237, 129, 40, 0.89)",
+        "#299c46"
+      ],
+      "datasource": null,
+      "format": "m",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 1
+      },
+      "hideTimeOverride": true,
+      "id": 47,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
         {
-          "cacheTimeout": null,
-          "colorBackground": true,
-          "colorValue": false,
-          "colors": [
-            "#d44a3a",
-            "rgba(237, 129, 40, 0.89)",
-            "#299c46"
-          ],
-          "datasource": null,
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "28*24*60*(1-$APP_SLO/100)- avg(count_over_time(firehose_value_metric_healthwatch_health_check_canary_app_probe_available{environment=\"$environment\"}[28d]) - sum_over_time(firehose_value_metric_healthwatch_health_check_canary_app_probe_available{environment=\"$environment\"}[28d]))",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": "0, 5",
+      "timeFrom": "5m",
+      "title": "Test App Error Budget Remaining",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [],
+      "valueName": "avg"
+    },
+    {
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 1
+      },
+      "id": 41,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
+        {
+          "keepTime": false,
+          "type": "absolute",
+          "url": "https://healthwatch.sys.pal1.mzpcf.com/cliCommandHealth/details"
+        }
+      ],
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "28*24*60*(1-$CF_SLO/100)- avg(count_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[28d]) - sum_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[28d]))",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "CF Push Success Error Budget",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "m",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
           "format": "short",
-          "gauge": {
-            "maxValue": 100,
-            "minValue": 0,
-            "show": false,
-            "thresholdLabels": false,
-            "thresholdMarkers": true
-          },
-          "hideTimeOverride": true,
-          "id": 38,
-          "interval": null,
-          "links": [],
-          "mappingType": 1,
-          "mappingTypes": [
-            {
-              "name": "value to text",
-              "value": 1
-            },
-            {
-              "name": "range to text",
-              "value": 2
-            }
-          ],
-          "maxDataPoints": 100,
-          "nullPointMode": "connected",
-          "nullText": null,
-          "postfix": "min",
-          "postfixFontSize": "50%",
-          "prefix": "",
-          "prefixFontSize": "50%",
-          "rangeMaps": [
-            {
-              "from": "null",
-              "text": "N/A",
-              "to": "null"
-            }
-          ],
-          "scopedVars": {
-            "environment": {
-              "selected": true,
-              "text": "plex-jackie",
-              "value": "plex-jackie"
-            }
-          },
-          "span": 2,
-          "sparkline": {
-            "fillColor": "rgba(31, 118, 189, 0.18)",
-            "full": false,
-            "lineColor": "rgb(31, 120, 193)",
-            "show": false
-          },
-          "tableColumn": "",
-          "targets": [
-            {
-              "expr": "30*24*60*(1-$SLO/100)- avg(count_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[30d]) - sum_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[30d]))",
-              "format": "time_series",
-              "intervalFactor": 1,
-              "refId": "A"
-            }
-          ],
-          "thresholds": "0, 5",
-          "timeFrom": "5m",
-          "title": "Error Budget (Rolling 30d)",
-          "type": "singlestat",
-          "valueFontSize": "80%",
-          "valueMaps": [],
-          "valueName": "avg"
-        },
-        {
-          "cacheTimeout": null,
-          "colorBackground": true,
-          "colorValue": false,
-          "colors": [
-            "#d44a3a",
-            "rgba(237, 129, 40, 0.89)",
-            "#299c46"
-          ],
-          "datasource": null,
-          "format": "none",
-          "gauge": {
-            "maxValue": 100,
-            "minValue": 0,
-            "show": false,
-            "thresholdLabels": false,
-            "thresholdMarkers": true
-          },
-          "hideTimeOverride": true,
-          "id": 31,
-          "interval": null,
-          "links": [],
-          "mappingType": 1,
-          "mappingTypes": [
-            {
-              "name": "value to text",
-              "value": 1
-            },
-            {
-              "name": "range to text",
-              "value": 2
-            }
-          ],
-          "maxDataPoints": 100,
-          "nullPointMode": "connected",
-          "nullText": null,
-          "postfix": "",
-          "postfixFontSize": "50%",
-          "prefix": "",
-          "prefixFontSize": "50%",
-          "rangeMaps": [
-            {
-              "from": "null",
-              "text": "N/A",
-              "to": "null"
-            }
-          ],
-          "scopedVars": {
-            "environment": {
-              "selected": true,
-              "text": "plex-jackie",
-              "value": "plex-jackie"
-            }
-          },
-          "span": 2,
-          "sparkline": {
-            "fillColor": "rgba(31, 118, 189, 0.18)",
-            "full": false,
-            "lineColor": "rgb(31, 120, 193)",
-            "show": false
-          },
-          "tableColumn": "",
-          "targets": [
-            {
-              "expr": "min(firehose_value_metric_healthwatch_health_check_cli_command_login{environment=\"$environment\"})",
-              "format": "time_series",
-              "intervalFactor": 1,
-              "refId": "A"
-            }
-          ],
-          "thresholds": "0.9, 1",
-          "timeFrom": "5m",
-          "title": "CF Login",
-          "type": "singlestat",
-          "valueFontSize": "80%",
-          "valueMaps": [
-            {
-              "op": "=",
-              "text": "Success",
-              "value": "1"
-            },
-            {
-              "op": "=",
-              "text": "Failed",
-              "value": "0"
-            },
-            {
-              "op": "=",
-              "text": "Not Run",
-              "value": "-1"
-            }
-          ],
-          "valueName": "avg"
-        },
-        {
-          "cacheTimeout": null,
-          "colorBackground": true,
-          "colorValue": false,
-          "colors": [
-            "#d44a3a",
-            "rgba(237, 129, 40, 0.89)",
-            "#299c46"
-          ],
-          "datasource": null,
-          "format": "none",
-          "gauge": {
-            "maxValue": 100,
-            "minValue": 0,
-            "show": false,
-            "thresholdLabels": false,
-            "thresholdMarkers": true
-          },
-          "hideTimeOverride": true,
-          "id": 32,
-          "interval": null,
-          "links": [],
-          "mappingType": 1,
-          "mappingTypes": [
-            {
-              "name": "value to text",
-              "value": 1
-            },
-            {
-              "name": "range to text",
-              "value": 2
-            }
-          ],
-          "maxDataPoints": 100,
-          "nullPointMode": "connected",
-          "nullText": null,
-          "postfix": "",
-          "postfixFontSize": "50%",
-          "prefix": "",
-          "prefixFontSize": "50%",
-          "rangeMaps": [
-            {
-              "from": "null",
-              "text": "N/A",
-              "to": "null"
-            }
-          ],
-          "scopedVars": {
-            "environment": {
-              "selected": true,
-              "text": "plex-jackie",
-              "value": "plex-jackie"
-            }
-          },
-          "span": 2,
-          "sparkline": {
-            "fillColor": "rgba(31, 118, 189, 0.18)",
-            "full": false,
-            "lineColor": "rgb(31, 120, 193)",
-            "show": false
-          },
-          "tableColumn": "",
-          "targets": [
-            {
-              "expr": "min(firehose_value_metric_healthwatch_health_check_cli_command_push{environment=\"$environment\"})",
-              "format": "time_series",
-              "intervalFactor": 1,
-              "refId": "A"
-            }
-          ],
-          "thresholds": "0.9, 1",
-          "timeFrom": "5m",
-          "title": "CF Push",
-          "type": "singlestat",
-          "valueFontSize": "80%",
-          "valueMaps": [
-            {
-              "op": "=",
-              "text": "Success",
-              "value": "1"
-            },
-            {
-              "op": "=",
-              "text": "Failed",
-              "value": "0"
-            },
-            {
-              "op": "=",
-              "text": "Not Run",
-              "value": "-1"
-            }
-          ],
-          "valueName": "avg"
-        },
-        {
-          "cacheTimeout": null,
-          "colorBackground": true,
-          "colorValue": false,
-          "colors": [
-            "#d44a3a",
-            "rgba(237, 129, 40, 0.89)",
-            "#299c46"
-          ],
-          "datasource": null,
-          "format": "none",
-          "gauge": {
-            "maxValue": 100,
-            "minValue": 0,
-            "show": false,
-            "thresholdLabels": false,
-            "thresholdMarkers": true
-          },
-          "hideTimeOverride": true,
-          "id": 33,
-          "interval": null,
-          "links": [],
-          "mappingType": 1,
-          "mappingTypes": [
-            {
-              "name": "value to text",
-              "value": 1
-            },
-            {
-              "name": "range to text",
-              "value": 2
-            }
-          ],
-          "maxDataPoints": 100,
-          "nullPointMode": "connected",
-          "nullText": null,
-          "postfix": "",
-          "postfixFontSize": "50%",
-          "prefix": "",
-          "prefixFontSize": "50%",
-          "rangeMaps": [
-            {
-              "from": "null",
-              "text": "N/A",
-              "to": "null"
-            }
-          ],
-          "scopedVars": {
-            "environment": {
-              "selected": true,
-              "text": "plex-jackie",
-              "value": "plex-jackie"
-            }
-          },
-          "span": 2,
-          "sparkline": {
-            "fillColor": "rgba(31, 118, 189, 0.18)",
-            "full": false,
-            "lineColor": "rgb(31, 120, 193)",
-            "show": false
-          },
-          "tableColumn": "",
-          "targets": [
-            {
-              "expr": "min(firehose_value_metric_healthwatch_health_check_cli_command_start{environment=\"$environment\"})",
-              "format": "time_series",
-              "intervalFactor": 1,
-              "refId": "A"
-            }
-          ],
-          "thresholds": "0.9, 1",
-          "timeFrom": "5m",
-          "title": "CF Start",
-          "type": "singlestat",
-          "valueFontSize": "80%",
-          "valueMaps": [
-            {
-              "op": "=",
-              "text": "Success",
-              "value": "1"
-            },
-            {
-              "op": "=",
-              "text": "Failed",
-              "value": "0"
-            },
-            {
-              "op": "=",
-              "text": "Not Run",
-              "value": "-1"
-            }
-          ],
-          "valueName": "avg"
-        },
-        {
-          "cacheTimeout": null,
-          "colorBackground": true,
-          "colorValue": false,
-          "colors": [
-            "#d44a3a",
-            "rgba(237, 129, 40, 0.89)",
-            "#299c46"
-          ],
-          "datasource": null,
-          "format": "none",
-          "gauge": {
-            "maxValue": 100,
-            "minValue": 0,
-            "show": false,
-            "thresholdLabels": false,
-            "thresholdMarkers": true
-          },
-          "hideTimeOverride": true,
-          "id": 35,
-          "interval": null,
-          "links": [],
-          "mappingType": 1,
-          "mappingTypes": [
-            {
-              "name": "value to text",
-              "value": 1
-            },
-            {
-              "name": "range to text",
-              "value": 2
-            }
-          ],
-          "maxDataPoints": 100,
-          "nullPointMode": "connected",
-          "nullText": null,
-          "postfix": "",
-          "postfixFontSize": "50%",
-          "prefix": "",
-          "prefixFontSize": "50%",
-          "rangeMaps": [
-            {
-              "from": "null",
-              "text": "N/A",
-              "to": "null"
-            }
-          ],
-          "scopedVars": {
-            "environment": {
-              "selected": true,
-              "text": "plex-jackie",
-              "value": "plex-jackie"
-            }
-          },
-          "span": 2,
-          "sparkline": {
-            "fillColor": "rgba(31, 118, 189, 0.18)",
-            "full": false,
-            "lineColor": "rgb(31, 120, 193)",
-            "show": false
-          },
-          "tableColumn": "",
-          "targets": [
-            {
-              "expr": "min(firehose_value_metric_healthwatch_health_check_cli_command_stop{environment=\"$environment\"})",
-              "format": "time_series",
-              "intervalFactor": 1,
-              "refId": "A"
-            }
-          ],
-          "thresholds": "0.9, 1",
-          "timeFrom": "5m",
-          "title": "CF Stop",
-          "type": "singlestat",
-          "valueFontSize": "80%",
-          "valueMaps": [
-            {
-              "op": "=",
-              "text": "Success",
-              "value": "1"
-            },
-            {
-              "op": "=",
-              "text": "Failed",
-              "value": "0"
-            },
-            {
-              "op": "=",
-              "text": "Not Run",
-              "value": "-1"
-            }
-          ],
-          "valueName": "avg"
-        },
-        {
-          "cacheTimeout": null,
-          "colorBackground": true,
-          "colorValue": false,
-          "colors": [
-            "#d44a3a",
-            "rgba(237, 129, 40, 0.89)",
-            "#299c46"
-          ],
-          "datasource": null,
-          "format": "none",
-          "gauge": {
-            "maxValue": 100,
-            "minValue": 0,
-            "show": false,
-            "thresholdLabels": false,
-            "thresholdMarkers": true
-          },
-          "hideTimeOverride": true,
-          "id": 36,
-          "interval": null,
-          "links": [],
-          "mappingType": 1,
-          "mappingTypes": [
-            {
-              "name": "value to text",
-              "value": 1
-            },
-            {
-              "name": "range to text",
-              "value": 2
-            }
-          ],
-          "maxDataPoints": 100,
-          "nullPointMode": "connected",
-          "nullText": null,
-          "postfix": "",
-          "postfixFontSize": "50%",
-          "prefix": "",
-          "prefixFontSize": "50%",
-          "rangeMaps": [
-            {
-              "from": "null",
-              "text": "N/A",
-              "to": "null"
-            }
-          ],
-          "scopedVars": {
-            "environment": {
-              "selected": true,
-              "text": "plex-jackie",
-              "value": "plex-jackie"
-            }
-          },
-          "span": 2,
-          "sparkline": {
-            "fillColor": "rgba(31, 118, 189, 0.18)",
-            "full": false,
-            "lineColor": "rgb(31, 120, 193)",
-            "show": false
-          },
-          "tableColumn": "",
-          "targets": [
-            {
-              "expr": "min(firehose_value_metric_healthwatch_health_check_cli_command_delete{environment=\"$environment\"})",
-              "format": "time_series",
-              "intervalFactor": 1,
-              "refId": "A"
-            }
-          ],
-          "thresholds": "0.9, 1",
-          "timeFrom": "5m",
-          "title": "CF Delete",
-          "type": "singlestat",
-          "valueFontSize": "80%",
-          "valueMaps": [
-            {
-              "op": "=",
-              "text": "Success",
-              "value": "1"
-            },
-            {
-              "op": "=",
-              "text": "Failed",
-              "value": "0"
-            },
-            {
-              "op": "=",
-              "text": "Not Run",
-              "value": "-1"
-            }
-          ],
-          "valueName": "avg"
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
         }
       ],
-      "repeat": "environment",
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "CLI Test Status",
-      "titleSize": "h6"
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     },
     {
-      "collapse": false,
-      "height": "250",
-      "panels": [
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#d44a3a",
+        "rgba(237, 129, 40, 0.89)",
+        "#299c46"
+      ],
+      "datasource": null,
+      "format": "m",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "hideTimeOverride": true,
+      "id": 38,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "fill": 1,
-          "id": 39,
-          "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
-            "show": false,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [
-            {
-              "type": "absolute",
-              "url": "https://healthwatch.sys.pal1.mzpcf.com/cliCommandHealth/details"
-            }
-          ],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "sum(sum_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[30d]))/sum(count_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[30d]))",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 1,
-              "refId": "A"
-            }
-          ],
-          "thresholds": [
-            {
-              "colorMode": "critical",
-              "fill": false,
-              "line": true,
-              "lineColor": "#ba43a9",
-              "op": "gt",
-              "value": 0.95
-            }
-          ],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "CF  CLI Success SLI (Rolling 30d)",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "decimals": null,
-              "format": "percentunit",
-              "label": "",
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": false
-            }
-          ]
+          "name": "value to text",
+          "value": 1
         },
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "fill": 1,
-          "id": 41,
-          "legend": {
-            "alignAsTable": false,
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "rightSide": false,
-            "show": false,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [
-            {
-              "keepTime": false,
-              "type": "absolute",
-              "url": "https://healthwatch.sys.pal1.mzpcf.com/cliCommandHealth/details"
-            }
-          ],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "30*24*60*(1-$SLO/100)- avg(count_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[30d]) - sum_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[30d]))",
-              "format": "time_series",
-              "interval": "",
-              "intervalFactor": 1,
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "CF CLI Success Error Budget (Rolling 30d)",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "decimals": null,
-              "format": "m",
-              "label": "",
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": false
-            }
-          ]
+          "name": "range to text",
+          "value": 2
         }
       ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "Dashboard Row",
-      "titleSize": "h6"
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "28*24*60*(1-$CF_SLO/100)- avg(count_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[28d]) - sum_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[28d]))",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "0, 5",
+      "timeFrom": "5m",
+      "title": "CF Push Error Budget Remaining",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [],
+      "valueName": "avg"
     },
     {
-      "collapse": false,
-      "height": 250,
-      "panels": [
+      "aliasColors": {},
+      "bars": false,
+      "dashLength": 10,
+      "dashes": false,
+      "datasource": null,
+      "fill": 1,
+      "gridPos": {
+        "h": 7,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 46,
+      "legend": {
+        "alignAsTable": false,
+        "avg": false,
+        "current": false,
+        "max": false,
+        "min": false,
+        "rightSide": false,
+        "show": false,
+        "total": false,
+        "values": false
+      },
+      "lines": true,
+      "linewidth": 1,
+      "links": [
         {
-          "aliasColors": {},
-          "bars": false,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "fill": 1,
-          "id": 15,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": false,
-            "total": false,
-            "values": false
-          },
-          "lines": true,
-          "linewidth": 1,
-          "links": [
-            {
-              "type": "absolute",
-              "url": "https://healthwatch.sys.pal1.mzpcf.com/cliCommandHealth/details"
-            }
-          ],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "firehose_value_metric_healthwatch_health_check_cli_command_push_time{environment=~\"$environment\"}",
-              "format": "time_series",
-              "intervalFactor": 2,
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "CF Push Duration",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "ms",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ]
-        },
-        {
-          "aliasColors": {},
-          "bars": true,
-          "dashLength": 10,
-          "dashes": false,
-          "datasource": null,
-          "fill": 1,
-          "id": 37,
-          "legend": {
-            "avg": false,
-            "current": false,
-            "max": false,
-            "min": false,
-            "show": false,
-            "total": false,
-            "values": false
-          },
-          "lines": false,
-          "linewidth": 1,
-          "links": [],
-          "nullPointMode": "null",
-          "percentage": false,
-          "pointradius": 5,
-          "points": false,
-          "renderer": "flot",
-          "seriesOverrides": [],
-          "spaceLength": 10,
-          "span": 6,
-          "stack": false,
-          "steppedLine": false,
-          "targets": [
-            {
-              "expr": "min(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=~\"$environment\"})",
-              "format": "time_series",
-              "intervalFactor": 1,
-              "refId": "A"
-            }
-          ],
-          "thresholds": [],
-          "timeFrom": null,
-          "timeShift": null,
-          "title": "History",
-          "tooltip": {
-            "shared": true,
-            "sort": 0,
-            "value_type": "individual"
-          },
-          "type": "graph",
-          "xaxis": {
-            "buckets": null,
-            "mode": "time",
-            "name": null,
-            "show": true,
-            "values": []
-          },
-          "yaxes": [
-            {
-              "format": "none",
-              "label": null,
-              "logBase": 1,
-              "max": "1",
-              "min": "0",
-              "show": false
-            },
-            {
-              "format": "short",
-              "label": null,
-              "logBase": 1,
-              "max": null,
-              "min": null,
-              "show": true
-            }
-          ]
+          "keepTime": false,
+          "type": "absolute",
+          "url": "https://healthwatch.sys.pal1.mzpcf.com/cliCommandHealth/details"
         }
       ],
-      "repeat": null,
-      "repeatIteration": null,
-      "repeatRowId": null,
-      "showTitle": false,
-      "title": "Row title",
-      "titleSize": "h6"
+      "nullPointMode": "null",
+      "percentage": false,
+      "pointradius": 5,
+      "points": false,
+      "renderer": "flot",
+      "seriesOverrides": [],
+      "spaceLength": 10,
+      "stack": false,
+      "steppedLine": false,
+      "targets": [
+        {
+          "expr": "28*24*60*(1-$APP_SLO/100)- avg(count_over_time(firehose_value_metric_healthwatch_health_check_canary_app_probe_available{environment=\"$environment\"}[28d]) - sum_over_time(firehose_value_metric_healthwatch_health_check_canary_app_probe_available{environment=\"$environment\"}[28d]))",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "refId": "A"
+        }
+      ],
+      "thresholds": [],
+      "timeFrom": null,
+      "timeShift": null,
+      "title": "Test App Success Error Budget",
+      "tooltip": {
+        "shared": true,
+        "sort": 0,
+        "value_type": "individual"
+      },
+      "type": "graph",
+      "xaxis": {
+        "buckets": null,
+        "mode": "time",
+        "name": null,
+        "show": true,
+        "values": []
+      },
+      "yaxes": [
+        {
+          "decimals": null,
+          "format": "m",
+          "label": "",
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": true
+        },
+        {
+          "format": "short",
+          "label": null,
+          "logBase": 1,
+          "max": null,
+          "min": null,
+          "show": false
+        }
+      ],
+      "yaxis": {
+        "align": false,
+        "alignLevel": null
+      }
     }
   ],
-  "schemaVersion": 14,
+  "refresh": false,
+  "schemaVersion": 16,
   "style": "dark",
-  "tags": [
-    "mvp"
-  ],
+  "tags": [],
   "templating": {
     "list": [
       {
         "allValue": null,
         "current": {
-          "tags": [],
-          "text": "plex-jackie",
-          "value": "plex-jackie"
+          "text": "pcf",
+          "value": "pcf"
         },
         "datasource": "prometheus",
         "hide": 0,
@@ -980,49 +421,106 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "text": "99.9",
-          "value": "99.9"
+          "tags": [],
+          "text": "98.00",
+          "value": "98.00"
         },
         "hide": 0,
         "includeAll": false,
-        "label": "SLO (%)",
+        "label": "CF Push SLO (%)",
         "multi": false,
-        "name": "SLO",
+        "name": "CF_SLO",
         "options": [
           {
             "selected": false,
-            "text": "99.999",
-            "value": "99.999"
+            "text": "95.00",
+            "value": "95.00"
           },
           {
             "selected": false,
-            "text": "99.99",
-            "value": "99.99"
+            "text": "97.00",
+            "value": "97.00"
           },
           {
             "selected": true,
+            "text": "98.00",
+            "value": "98.00"
+          },
+          {
+            "selected": false,
+            "text": "99.00",
+            "value": "99.00"
+          },
+          {
+            "selected": false,
+            "text": "99.5",
+            "value": "99.5"
+          },
+          {
+            "selected": false,
             "text": "99.9",
             "value": "99.9"
           },
           {
             "selected": false,
-            "text": "99",
-            "value": "99"
+            "text": "99.99",
+            "value": "99.99"
+          }
+        ],
+        "query": "95.00, 97.00, 98.00, 99.00, 99.5, 99.9, 99.99",
+        "type": "custom"
+      },
+      {
+        "allValue": null,
+        "current": {
+          "tags": [],
+          "text": "99.5",
+          "value": "99.5"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Test App SLO (%)",
+        "multi": false,
+        "name": "APP_SLO",
+        "options": [
+          {
+            "selected": false,
+            "text": "97.00",
+            "value": "97.00"
           },
           {
             "selected": false,
-            "text": "95",
-            "value": "95"
+            "text": "98.00",
+            "value": "98.00"
+          },
+          {
+            "selected": false,
+            "text": "99.00",
+            "value": "99.00"
+          },
+          {
+            "selected": true,
+            "text": "99.5",
+            "value": "99.5"
+          },
+          {
+            "selected": false,
+            "text": "99.9",
+            "value": "99.9"
+          },
+          {
+            "selected": false,
+            "text": "99.99",
+            "value": "99.99"
           }
         ],
-        "query": "99.999, 99.99, 99.9, 99, 95",
+        "query": "97.00, 98.00, 99.00, 99.5, 99.9, 99.99",
         "type": "custom"
       }
     ]
   },
   "time": {
-    "from": "now/d",
+    "from": "now-7d",
     "to": "now"
   },
   "timepicker": {
@@ -1051,6 +549,7 @@
     ]
   },
   "timezone": "",
-  "title": "MVP: CF CLI Monitoring SLI",
-  "version": 23
+  "title": "CF SLO Dashboard",
+  "uid": "uD1rmaYik",
+  "version": 29
 }
