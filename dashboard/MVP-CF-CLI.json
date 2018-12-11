@@ -17,19 +17,7 @@
   "graphTooltip": 0,
   "id": 56,
   "iteration": 1544548566846,
-  "links": [
-    {
-      "asDropdown": true,
-      "icon": "external link",
-      "includeVars": true,
-      "keepTime": true,
-      "tags": [
-        "mvp"
-      ],
-      "title": "MVP",
-      "type": "dashboards"
-    }
-  ],
+  "links": [],
   "panels": [
     {
       "collapsed": false,
@@ -149,13 +137,7 @@
       },
       "lines": true,
       "linewidth": 1,
-      "links": [
-        {
-          "keepTime": false,
-          "type": "absolute",
-          "url": "https://healthwatch.sys.pal1.mzpcf.com/cliCommandHealth/details"
-        }
-      ],
+      "links": [],
       "nullPointMode": "null",
       "percentage": false,
       "pointradius": 5,
@@ -321,13 +303,7 @@
       },
       "lines": true,
       "linewidth": 1,
-      "links": [
-        {
-          "keepTime": false,
-          "type": "absolute",
-          "url": "https://healthwatch.sys.pal1.mzpcf.com/cliCommandHealth/details"
-        }
-      ],
+      "links": [],
       "nullPointMode": "null",
       "percentage": false,
       "pointradius": 5,
