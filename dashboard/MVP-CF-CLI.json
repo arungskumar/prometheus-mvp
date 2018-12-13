@@ -16,34 +16,88 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 56,
-  "iteration": 1544548566846,
-  "links": [
-    {
-      "asDropdown": true,
-      "icon": "external link",
-      "includeVars": true,
-      "keepTime": true,
-      "tags": [
-        "mvp"
-      ],
-      "title": "MVP",
-      "type": "dashboards"
-    }
-  ],
+  "iteration": 1544719342751,
+  "links": [],
   "panels": [
     {
-      "collapsed": false,
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#2f575e",
+        "#2f575e",
+        "#2f575e"
+      ],
+      "datasource": null,
+      "decimals": null,
+      "format": "percentunit",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
       "gridPos": {
-        "h": 1,
-        "w": 24,
+        "h": 4,
+        "w": 6,
         "x": 0,
         "y": 0
       },
-      "id": 43,
-      "panels": [],
-      "repeat": null,
-      "title": "SLOs",
-      "type": "row"
+      "hideTimeOverride": true,
+      "id": 49,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "Value",
+      "targets": [
+        {
+          "expr": "sum(sum_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[28d]))/sum(count_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[28d]))",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "98,",
+      "timeFrom": "5m",
+      "title": "CF Push Availability",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [],
+      "valueName": "avg"
     },
     {
       "cacheTimeout": null,
@@ -64,10 +118,168 @@
         "thresholdMarkers": true
       },
       "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 1
+        "h": 4,
+        "w": 5,
+        "x": 6,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 38,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "",
+      "targets": [
+        {
+          "expr": "28*24*60*(1-$CF_SLO/100)- avg(count_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[28d]) - sum_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[28d]))",
+          "format": "time_series",
+          "hide": false,
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "0, 5",
+      "timeFrom": "5m",
+      "title": "CF Push Error Budget Remaining",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#2f575e",
+        "#2f575e",
+        "#2f575e"
+      ],
+      "datasource": null,
+      "decimals": null,
+      "format": "percentunit",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 11,
+        "y": 0
+      },
+      "hideTimeOverride": true,
+      "id": 48,
+      "interval": null,
+      "links": [],
+      "mappingType": 1,
+      "mappingTypes": [
+        {
+          "name": "value to text",
+          "value": 1
+        },
+        {
+          "name": "range to text",
+          "value": 2
+        }
+      ],
+      "maxDataPoints": 100,
+      "nullPointMode": "connected",
+      "nullText": null,
+      "postfix": "",
+      "postfixFontSize": "50%",
+      "prefix": "",
+      "prefixFontSize": "50%",
+      "rangeMaps": [
+        {
+          "from": "null",
+          "text": "N/A",
+          "to": "null"
+        }
+      ],
+      "sparkline": {
+        "fillColor": "rgba(31, 118, 189, 0.18)",
+        "full": false,
+        "lineColor": "rgb(31, 120, 193)",
+        "show": false
+      },
+      "tableColumn": "Value",
+      "targets": [
+        {
+          "expr": "sum(sum_over_time(firehose_value_metric_healthwatch_health_check_canary_app_probe_available{environment=\"$environment\"}[28d]))/sum(count_over_time(firehose_value_metric_healthwatch_health_check_canary_app_probe_available{environment=\"$environment\"}[28d]))",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "intervalFactor": 1,
+          "legendFormat": "",
+          "refId": "A"
+        }
+      ],
+      "thresholds": "99,",
+      "timeFrom": "5m",
+      "title": "Test App Availability",
+      "type": "singlestat",
+      "valueFontSize": "80%",
+      "valueMaps": [],
+      "valueName": "avg"
+    },
+    {
+      "cacheTimeout": null,
+      "colorBackground": true,
+      "colorValue": false,
+      "colors": [
+        "#d44a3a",
+        "rgba(237, 129, 40, 0.89)",
+        "#299c46"
+      ],
+      "datasource": null,
+      "format": "m",
+      "gauge": {
+        "maxValue": 100,
+        "minValue": 0,
+        "show": false,
+        "thresholdLabels": false,
+        "thresholdMarkers": true
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 6,
+        "x": 17,
+        "y": 0
       },
       "hideTimeOverride": true,
       "id": 47,
@@ -131,9 +343,9 @@
       "fill": 1,
       "gridPos": {
         "h": 7,
-        "w": 12,
-        "x": 12,
-        "y": 1
+        "w": 11,
+        "x": 0,
+        "y": 4
       },
       "id": 41,
       "legend": {
@@ -217,84 +429,6 @@
       }
     },
     {
-      "cacheTimeout": null,
-      "colorBackground": true,
-      "colorValue": false,
-      "colors": [
-        "#d44a3a",
-        "rgba(237, 129, 40, 0.89)",
-        "#299c46"
-      ],
-      "datasource": null,
-      "format": "m",
-      "gauge": {
-        "maxValue": 100,
-        "minValue": 0,
-        "show": false,
-        "thresholdLabels": false,
-        "thresholdMarkers": true
-      },
-      "gridPos": {
-        "h": 7,
-        "w": 12,
-        "x": 0,
-        "y": 8
-      },
-      "hideTimeOverride": true,
-      "id": 38,
-      "interval": null,
-      "links": [],
-      "mappingType": 1,
-      "mappingTypes": [
-        {
-          "name": "value to text",
-          "value": 1
-        },
-        {
-          "name": "range to text",
-          "value": 2
-        }
-      ],
-      "maxDataPoints": 100,
-      "nullPointMode": "connected",
-      "nullText": null,
-      "postfix": "",
-      "postfixFontSize": "50%",
-      "prefix": "",
-      "prefixFontSize": "50%",
-      "rangeMaps": [
-        {
-          "from": "null",
-          "text": "N/A",
-          "to": "null"
-        }
-      ],
-      "sparkline": {
-        "fillColor": "rgba(31, 118, 189, 0.18)",
-        "full": false,
-        "lineColor": "rgb(31, 120, 193)",
-        "show": false
-      },
-      "tableColumn": "",
-      "targets": [
-        {
-          "expr": "28*24*60*(1-$CF_SLO/100)- avg(count_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[28d]) - sum_over_time(firehose_value_metric_healthwatch_health_check_cli_command_success{environment=\"$environment\"}[28d]))",
-          "format": "time_series",
-          "hide": false,
-          "intervalFactor": 1,
-          "legendFormat": "",
-          "refId": "A"
-        }
-      ],
-      "thresholds": "0, 5",
-      "timeFrom": "5m",
-      "title": "CF Push Error Budget Remaining",
-      "type": "singlestat",
-      "valueFontSize": "80%",
-      "valueMaps": [],
-      "valueName": "avg"
-    },
-    {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
@@ -304,8 +438,8 @@
       "gridPos": {
         "h": 7,
         "w": 12,
-        "x": 12,
-        "y": 8
+        "x": 11,
+        "y": 4
       },
       "id": 46,
       "legend": {
@@ -387,6 +521,20 @@
         "align": false,
         "alignLevel": null
       }
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 11
+      },
+      "id": 43,
+      "panels": [],
+      "repeat": null,
+      "title": "SLOs",
+      "type": "row"
     }
   ],
   "refresh": false,
@@ -551,5 +699,5 @@
   "timezone": "",
   "title": "CF SLO Dashboard",
   "uid": "uD1rmaYik",
-  "version": 29
+  "version": 37
 }
