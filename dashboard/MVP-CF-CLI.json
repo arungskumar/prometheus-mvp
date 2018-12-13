@@ -16,9 +16,23 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": 56,
-  "iteration": 1544719342751,
+  "iteration": 1544726235826,
   "links": [],
   "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 43,
+      "panels": [],
+      "repeat": null,
+      "title": "SLOs",
+      "type": "row"
+    },
     {
       "cacheTimeout": null,
       "colorBackground": true,
@@ -42,7 +56,7 @@
         "h": 4,
         "w": 6,
         "x": 0,
-        "y": 0
+        "y": 1
       },
       "hideTimeOverride": true,
       "id": 49,
@@ -121,7 +135,7 @@
         "h": 4,
         "w": 5,
         "x": 6,
-        "y": 0
+        "y": 1
       },
       "hideTimeOverride": true,
       "id": 38,
@@ -200,7 +214,7 @@
         "h": 4,
         "w": 6,
         "x": 11,
-        "y": 0
+        "y": 1
       },
       "hideTimeOverride": true,
       "id": 48,
@@ -243,6 +257,7 @@
           "expr": "sum(sum_over_time(firehose_value_metric_healthwatch_health_check_canary_app_probe_available{environment=\"$environment\"}[28d]))/sum(count_over_time(firehose_value_metric_healthwatch_health_check_canary_app_probe_available{environment=\"$environment\"}[28d]))",
           "format": "time_series",
           "hide": false,
+          "instant": false,
           "interval": "",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -279,7 +294,7 @@
         "h": 4,
         "w": 6,
         "x": 17,
-        "y": 0
+        "y": 1
       },
       "hideTimeOverride": true,
       "id": 47,
@@ -345,7 +360,7 @@
         "h": 7,
         "w": 11,
         "x": 0,
-        "y": 4
+        "y": 5
       },
       "id": 41,
       "legend": {
@@ -439,7 +454,7 @@
         "h": 7,
         "w": 12,
         "x": 11,
-        "y": 4
+        "y": 5
       },
       "id": 46,
       "legend": {
@@ -521,20 +536,6 @@
         "align": false,
         "alignLevel": null
       }
-    },
-    {
-      "collapsed": false,
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 11
-      },
-      "id": 43,
-      "panels": [],
-      "repeat": null,
-      "title": "SLOs",
-      "type": "row"
     }
   ],
   "refresh": false,
@@ -622,8 +623,8 @@
         "allValue": null,
         "current": {
           "tags": [],
-          "text": "99.5",
-          "value": "99.5"
+          "text": "99.9",
+          "value": "99.9"
         },
         "hide": 0,
         "includeAll": false,
@@ -647,12 +648,12 @@
             "value": "99.00"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "99.5",
             "value": "99.5"
           },
           {
-            "selected": false,
+            "selected": true,
             "text": "99.9",
             "value": "99.9"
           },
@@ -668,7 +669,7 @@
     ]
   },
   "time": {
-    "from": "now-7d",
+    "from": "now-2d",
     "to": "now"
   },
   "timepicker": {
@@ -699,5 +700,5 @@
   "timezone": "",
   "title": "CF SLO Dashboard",
   "uid": "uD1rmaYik",
-  "version": 37
+  "version": 41
 }
